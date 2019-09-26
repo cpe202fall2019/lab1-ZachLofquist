@@ -1,4 +1,4 @@
-aimport unittest
+import unittest
 from lab1 import *
 
  # A few test cases.  Add more!!!
@@ -9,17 +9,45 @@ class TestLab1(unittest.TestCase):
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             max_list_iter(tlist)
+        #Tests for the max being at the end of the list
+        self.assertEqual(max_list_iter([1, 2, 3]), 3)
+        #Tests for the max being in the middle of the list
+        self.assertEqual(max_list_iter([1, 3, 2]), 3)
+        #Tests for the max being at the start of the list
+        self.assertEqual(max_list_iter([3, 2, 1]), 3)
+        #Tests for the max being all the numbers in the list
+        self.assertEqual(max_list_iter([3, 3, 3]), 3)
+        #Tests for the max being some of the numbers in the list
+        self.assertEqual(max_list_iter([1, 3, 3]), 3)
+
 
     def test_reverse_rec(self):
+        tlist = None
+        with self.assertRaises(ValueError):  # used to check for exception
+            max_list_iter(tlist)
         self.assertEqual(reverse_rec([1,2,3]),[3,2,1])
+        self.assertEqual(reverse_rec([1,2,3,4,5,6,7]), [7,6,5,4,3,2,1])
+        self.assertEqual(reverse_rec([1,2]), [2,1])
+        self.assertEqual(reverse_rec([1]), [1])
+        self.assertEqual(reverse_rec([]),[])
+
 
     def test_bin_search(self):
+        tlist = None
+        with self.assertRaises(ValueError):  # used to check for exception
+            max_list_iter(tlist)
         list_val =[0,1,2,3,4,7,8,9,10]
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 4 )
+        list_val = [0, 1, 2, 3]
+        self.assertEqual(bin_search(1, 0, len(list_val) - 1, list_val), 1)
+        list_val = [10, 12, 13, 15, 25, 34, 40, 42, 44, 56, 60]
+        self.assertEqual(bin_search(44, 0, len(list_val) - 1, list_val), 8)
+        list_val = [10, 12, 13, 15, 25, 34, 40, 42, 44, 56, 60]
+        self.assertEqual(bin_search(1, 0, len(list_val) - 1, list_val), None)
+
 
 if __name__ == "__main__":
         unittest.main()
 
-    
