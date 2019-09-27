@@ -7,9 +7,11 @@ class Location:
         self.lat = lat      # latitude in degrees (-90 to 90)
         self.lon = lon      # longitude in degrees (-180 to 180)
 
+    # Checks if two locations passed in are the same
     def __eq__(self, other):
         return(self.name == other.name and self.lat == other.lat and self.lon == other.lon)
 
+    # Returns the string representation of the location
     def __repr__(self):
         return("Location('{0}', {1}, {2})".format(self.name, self.lat, self.lon))
 # ADD BOILERPLATE HERE (__eq__ and __repr__ functions)
