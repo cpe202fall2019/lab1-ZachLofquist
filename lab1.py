@@ -45,6 +45,8 @@ def bin_search(target, low, high, int_list):  # must use recursion
    if int_list == None:                               #If the list doesn't exist a ValueError is raised
        raise ValueError
    mid = (low + high) // 2                            #Sets mid to the midpoint of high and low
+   if int_list == []:                                 #Returns None if the list is empty
+       return None
    if int_list[mid] == target:                        #If the mid is equal to the target to mid is returned
        return mid
    if mid == high and mid == low:                     #If the mid is equal to the high and the low then None is returned since it was already checked against the target
